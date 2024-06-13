@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ hockey.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ hockey.name }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+      <ion-col size="auto">
+        <ion-avatar>
+          <ion-img [src]="'https://assets.nhle.com/mugs/nhl/20232024/' + hockey.teamAbbrev + '/' + hockey.playerId + '.png'"></ion-img>
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            <ion-label>Still active</ion-label>
+            <ion-note slot="end">{{ hockey.active }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Team</ion-label>
+            <ion-note slot="end">{{ hockey.lastTeamAbbrev }}</ion-note>
+            <ion-img [src]="'https://assets.nhle.com/logos/nhl/svg/' + hockey.lastTeamAbbrev + '_light.svg'" style="height: 20px; margin-left: 10px;"></ion-img>
+          </ion-item>
+          <ion-item>
+            <ion-label>Birth City and Country</ion-label>
+            <ion-note slot="end">{{ hockey.birthCity }}, {{ hockey.birthCountry }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Position</ion-label>
+            <ion-note slot="end">{{ hockey.positionCode }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Height and Weight</ion-label>
+            <ion-note slot="end">Height: {{ hockey.heightInCentimeters }} cm</ion-note>
+            <ion-note slot="end" style="margin-left: 10px;">Weight: {{ hockey.weightInKilograms }} kg</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

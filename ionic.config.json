@@ -1,0 +1,7 @@
+{
+  "name": "nhl",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

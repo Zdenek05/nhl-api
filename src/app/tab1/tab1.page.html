@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Hockey
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [debounce]="300" (ionInput)="searchHockey($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Hockey</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let player of players$ | async" routerLink="/hockey" (click)="transferHockey(player)">
+        <ion-avatar slot="start">
+          <ion-img [src]="'https://assets.nhle.com/mugs/nhl/20232024/' + player.teamAbbrev + '/' + player.playerId + '.png'"></ion-img>
+        </ion-avatar>
+        <ion-label>{{ player.name }}</ion-label>
+        <ion-note slot="end">
+          {{ player.birthCity }}
+        </ion-note>
+      </ion-item>
+    </ion-list>
+</ion-content>
